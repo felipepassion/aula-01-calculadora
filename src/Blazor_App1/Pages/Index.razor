@@ -1,9 +1,49 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catálogo de Roupas</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Roupas</h1>
+    </header>
 
-<h1>Hello, world!</h1>
+    <main>
+        <section id="featured-products">
+            <h2>Produtos em Destaque</h2>
 
-Welcome to your new app.
+            <article class="product">
+                <img src="camiseta.png" alt="Camiseta">
+                <h3>Camiseta</h3>
+                <p>R$50,00</p>
+            </article>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+            <article class="product">
+                <img src="jeans.png" alt="Jeans">
+                <h3>Jeans</h3>
+                <p>R$100,00</p>
+            </article>
+
+            <article class="product">
+                <img src="jaqueta.png" alt="Jaqueta">
+                <h3>Jaqueta</h3>
+                <p>R$150,00</p>
+            </article>
+
+            <article class="product">
+                <img src="sapatos.png" alt="Sapatos">
+                <h3>Sapatos</h3>
+                <p>R$200,00</p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2023, Catálogo de Roupas</p>
+    </footer>
+</body>
+</html>
