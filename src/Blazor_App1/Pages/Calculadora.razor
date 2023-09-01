@@ -1,0 +1,112 @@
+﻿@page "/calculadora"
+
+<div class="calculator">
+    <input @bind=resultado type="text" id="result" readonly />
+    <div class="buttons">
+        <button @onclick="() => ClearScreen()">C</button>
+        <button @onclick="() => Display('1')">1</button>
+        <button @onclick="() => Display('2')">2</button>
+        <button @onclick="() => Display('3')">3</button>
+        <button @onclick="() => SetOperation('+')">+</button>
+
+        <button @onclick="() => Display('4')">4</button>
+        <button @onclick="() => Display('5')">5</button>
+        <button @onclick="() => Display('6')">6</button>
+        <button @onclick="() => SetOperation('-')">-</button>
+
+        <button @onclick="() => Display('7')">7</button>
+        <button @onclick="() => Display('8')">8</button>
+        <button @onclick="() => Display('9')">9</button>
+        <button @onclick="() => SetOperation('*')">*</button>
+
+        <button @onclick="() => Display('0')">0</button>
+        <button @onclick="() => Display('.')">.</button>
+        <button @onclick="Calculate">=</button>
+        <button @onclick="() => SetOperation('/')">/</button>
+        <button @onclick="() => CalculateSqrt()">√</button>
+    </div>
+</div>
+
+@code {
+    string resultado = "";
+    string valor1 = "";
+    string valor2 = "";
+    char operacao;
+
+    void ClearScreen()
+    {
+        resultado = "";
+        valor1 = "";
+        valor2 = "";
+    }
+
+    void Display(char valor)
+    {
+        if (operacao == '\0')
+        {
+            valor1 += valor;
+        }
+        else
+        {
+            valor2 += valor;
+        }
+        resultado += valor;
+    }
+
+    void SetOperation(char op)
+    {
+        operacao = op;
+        resultado += op.ToString();
+    }
+
+    void CalculateSqrt()
+    {
+        if (string.IsNullOrEmpty(valor1)) return;
+
+        double num1 = double.Parse(valor1);
+        double res = Math.Sqrt(num1);
+
+        resultado = res.ToString();
+        valor1 = resultado;
+        valor2 = "";
+        operacao = '\0';
+    }
+
+    void Calculate()
+    {
+        double num1 = double.Parse(valor1);
+        double num2 = double.Parse(valor2);
+        double res = 0;
+
+        switch (operacao)
+        {
+            case '+':
+                res = num1 + num2;
+                break;
+            case '-':
+                res = num1 - num2;
+                break;
+            case '√':
+                res = Math.Sqrt(num1);
+                break;
+            case '*':
+                res = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0)
+                {
+                    res = num1 / num2;
+                }
+                else
+                {
+                    resultado = "Error";
+                    return;
+                }
+                break;
+        }
+        resultado = res.ToString();
+        valor1 = resultado;
+        valor2 = "";
+        operacao = '\0';
+    }
+}
