@@ -8,5 +8,5 @@
 //white = branco
 //write = escreva
 //line = linha
-// WriteLina = EscrevaLinha = Escreva quebrando linha
+// WriteLina = EscrevaLinha = Escrever quebrando linha
 //Console.WriteLine(numero);

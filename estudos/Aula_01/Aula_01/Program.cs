@@ -1,9 +1,32 @@
-﻿// square root
-Console.WriteLine("Por favor, digite um valor: ");
-var valorLido = int.Parse(Console.ReadLine());
+﻿void Escrever(string texto)
+{
+    Console.WriteLine(texto);
+}
 
-Console.WriteLine("Digite o segundo valor: ");
-var valorLido2 = int.Parse(Console.ReadLine());
+void Andar()
+{
+    Escrever("Estou andando...");
+}
 
-var menorValor = Math.Min(valorLido, valorLido2);
-Console.WriteLine("O menor valor é: " + menorValor);
+void Pular()
+{
+    Escrever("Pular obstáculo...");
+}
+
+void DarPorrada()
+{
+    Escrever("PEW POW POW POW PEW");
+}
+void Correr()
+{
+    Escrever("Correndo....");
+}
+
+Andar();
+Correr();
+Correr();
+Correr();
+Pular();
+DarPorrada();
+Andar();
+DarPorrada();
